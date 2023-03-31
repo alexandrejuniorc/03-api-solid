@@ -48,7 +48,3 @@ model Gym {
 
   @@map("gyms")
 }
-
-// 1-1 => um pra um
-// 1-N => um pra muitos
-// N-N => muitos pra muitos
