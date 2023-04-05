@@ -4,14 +4,24 @@ import { UsersRepository } from "../users-repository";
 export class InMemoryUsersRepository implements UsersRepository {
   public items: User[] = [];
 
-  async findByEmail(email: string){
-    const user = this.items.find(item => item.email === email)
+  async findById(id: string) {
+    const user = this.items.find((item) => item.id === id);
 
-    if(!user) {
-      return null
+    if (!user) {
+      return null;
     }
 
-    return user
+    return user;
+  }
+
+  async findByEmail(email: string) {
+    const user = this.items.find((item) => item.email === email);
+
+    if (!user) {
+      return null;
+    }
+
+    return user;
   }
 
   async create(data: Prisma.UserCreateInput) {
@@ -23,8 +33,8 @@ export class InMemoryUsersRepository implements UsersRepository {
       created_at: new Date(),
     };
 
-    this.items.push(user)
+    this.items.push(user);
 
-    return user
+    return user;
   }
 }
